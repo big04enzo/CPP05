@@ -1,4 +1,4 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
     : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) {

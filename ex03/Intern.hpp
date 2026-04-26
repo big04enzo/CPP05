@@ -2,7 +2,7 @@
 #define INTERN_HPP
 
 #include <string>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class Intern {
 public:

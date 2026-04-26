@@ -1,23 +1,34 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include "Intern.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include <iostream>
 
 int main() {
-    try {
-        Intern someRandomIntern;
-        Form* rrf;
-        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-        if (rrf) {
-            Bureaucrat chief("Chief", 1);
-            chief.signForm(*rrf);
-            chief.executeForm(*rrf);
-            delete rrf;
-        }
-    } catch (std::exception& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
-    }
-    return 0;
+	try {
+		Bureaucrat bob("Bob", 1);
+		Bureaucrat jim("Jim", 50);
+		Bureaucrat tim("Tim", 140);
+
+		PresidentialPardonForm ppf("Arthur Dent");
+		RobotomyRequestForm rrf("Marvin");
+		ShrubberyCreationForm scf("Earth");
+
+		std::cout << "\n--- Signing Forms ---\n";
+		bob.signForm(ppf);
+		jim.signForm(rrf);
+		tim.signForm(scf);
+
+		std::cout << "\n--- Executing Forms ---\n";
+		bob.executeForm(ppf);
+		jim.executeForm(rrf);
+		tim.executeForm(scf);
+
+		std::cout << "\n--- Trying to execute unsigned form ---\n";
+		PresidentialPardonForm notSigned("Ford Prefect");
+		jim.executeForm(notSigned);
+	} catch (std::exception& e) {
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
+	return 0;
 }

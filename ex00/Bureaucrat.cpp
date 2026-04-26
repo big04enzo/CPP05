@@ -12,7 +12,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name), grade(other.
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
     if (this != &other) {
-        // name is const, not assignable
         this->grade = other.grade;
     }
     return *this;

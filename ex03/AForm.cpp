@@ -1,4 +1,4 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
     : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) {
@@ -36,6 +36,9 @@ const char* Form::GradeTooHighException::what() const throw() {
 }
 const char* Form::GradeTooLowException::what() const throw() {
     return "Form: Grade is too low!";
+}
+const char* Form::FormNotSignedException::what() const throw() {
+    return "Form: Not signed!";
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& f) {
