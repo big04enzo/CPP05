@@ -2,15 +2,15 @@
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
-    : Form("ShrubberyCreationForm", 145, 137), target(target) {}
+    : AForm("ShrubberyCreationAForm", 145, 137), target(target) {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
     if (!getIsSigned())
-        throw Form::FormNotSignedException();
+        throw AForm::AFormNotSignedException();
     if (executor.getGrade() > getGradeToExecute())
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
     std::ofstream ofs((target + "_shrubbery").c_str());
     ofs << "      /\\\n     /  \\\n    /++++\\\n   /  ()  \\\n   /      \\\n  /~`~`~`~`\\\n      | |\n";
     ofs.close();

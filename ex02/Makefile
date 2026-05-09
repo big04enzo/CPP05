@@ -8,7 +8,7 @@ CXXFLAGS =  -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) AForm.hpp Bureaucrat.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp ShrubberyCreationForm.hpp
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:

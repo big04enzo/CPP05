@@ -5,17 +5,17 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-class Form {
+class AForm {
 private:
     const std::string name;
     bool isSigned;
     const int gradeToSign;
     const int gradeToExecute;
 public:
-    Form(const std::string& name, int gradeToSign, int gradeToExecute);
-    Form(const Form& other);
-    Form& operator=(const Form& other);
-    virtual ~Form();
+    AForm(const std::string& name, int gradeToSign, int gradeToExecute);
+    AForm(const AForm& other);
+    AForm& operator=(const AForm& other);
+    virtual ~AForm();
 
     const std::string& getName() const;
     bool getIsSigned() const;
@@ -32,12 +32,12 @@ public:
     public:
         const char* what() const throw();
     };
-    class FormNotSignedException : public std::exception {
+    class AFormNotSignedException : public std::exception {
     public:
         const char* what() const throw();
     };
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& f);
+std::ostream& operator<<(std::ostream& os, const AForm& f);
 
 #endif

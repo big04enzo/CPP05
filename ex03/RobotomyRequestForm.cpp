@@ -4,15 +4,15 @@
 #include <iostream>
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
-    : Form("RobotomyRequestForm", 72, 45), target(target) {}
+    : AForm("RobotomyRequestForm", 72, 45), target(target) {}
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
     if (!getIsSigned())
-        throw Form::FormNotSignedException();
+        throw AForm::AFormNotSignedException();
     if (executor.getGrade() > getGradeToExecute())
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
     std::cout << "Bzzzz... drilling noises...\n";
     std::srand(std::time(0));
     if (std::rand() % 2)

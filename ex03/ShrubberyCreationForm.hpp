@@ -4,10 +4,10 @@
 #include "AForm.hpp"
 #include <fstream>
 
-class ShrubberyCreationForm : public Form {
+class ShrubberyCreationForm : public AForm {
 public:
     ShrubberyCreationForm(const std::string& target);
-    virtual ~ShrubberyCreationForm();
+    ~ShrubberyCreationForm();
     void execute(const Bureaucrat& executor) const;
 private:
     std::string target;

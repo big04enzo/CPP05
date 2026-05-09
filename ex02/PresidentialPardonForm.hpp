@@ -3,10 +3,10 @@
 
 #include "AForm.hpp"
 
-class PresidentialPardonForm : public Form {
+class PresidentialPardonForm : public AForm {
 public:
     PresidentialPardonForm(const std::string& target);
-    virtual ~PresidentialPardonForm();
+     ~PresidentialPardonForm();
     void execute(const Bureaucrat& executor) const;
 private:
     std::string target;
